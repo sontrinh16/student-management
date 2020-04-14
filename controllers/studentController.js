@@ -86,7 +86,7 @@ exports.getGrades = catchAsync (async (req, res, next) => {
 
     if (grades.length === 0) return next(new appError(404, 'invalid year or semester'));
 
-    console.log(grades);
+    //console.log(grades);
 
     res.status(200).render('grade', {
         title: 'Grade',
