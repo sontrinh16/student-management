@@ -1,0 +1,23 @@
+extends base
+block content
+    div
+        table
+            tr
+                th Name
+                th Room
+                th Building
+                th On
+                th Period
+                th Status
+                th Teacher
+                    
+            each i in classes
+                tr
+                    td= i.subject_name
+                    td= i.room
+                    td= i.building
+                    td= i.class_on
+                    td= i.period
+                    td= i.status
+                    td= i.full_name
+                        

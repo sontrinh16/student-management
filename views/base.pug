@@ -1,0 +1,51 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        link(rel='stylesheet' href='css/style.css')
+        title= title
+
+    body
+        .container
+            .intro
+                a(href='/logout') 
+                    img(src='img/login1.png') 
+                    span(style='color: whitesmoke;margin-bottom:5px;font-family: Arial')
+                .icon
+                    img(src='img/icon1.png' alt ='icon truong')
+                h1 SIMPLE STUDENT MANAGEMENT
+
+            .menu
+                ul
+                    li
+                        a.home(href='/student/homepage') Trang chủ
+                    li
+                        a.classroom(href='/student/classes') Lớp
+                    li
+                        a.student(href='/student/profile') Sinh viên
+                    li
+                        a.lecturer(href='student/teachers') Giảng viên
+                    li
+                        a.result(href='/student/grades') Điểm thi
+                   
+            .content
+                .content-intro= title   
+                block content
+                     
+
+        footer.footer
+            .content-intro
+                b Liên hệ
+            //-img.footer_logo(src='img/logocontact.png')
+            .contact-info
+                //-h3(style='color: coral') Web quản lý sinh viên
+                ul(style='color: coral;')
+                    li Developed by: INT2207 7 
+                    li Phone: 0989930624 
+                    li Email: logan189@gmail.com
+                    li Adress: 144 Xuân Thủy, Mai Dịch, Cầu Giấy, Hà Nội 
+                    li ©No copyright 
+            
+    
+
+

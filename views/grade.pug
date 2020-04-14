@@ -1,0 +1,18 @@
+extends base
+block content
+    div
+        table
+            tr
+                th Subject
+                th Mid term
+                th Final
+                th Avarage
+
+            each i in grades
+                tr
+                    tb= i.subject_name
+                    tb= i.midterm
+                    tb= i.final
+                    fb= i.avarage
+               
+                

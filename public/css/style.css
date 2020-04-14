@@ -1,0 +1,171 @@
+body{
+    background: url("../img/cover2.jpg");
+    background-size: cover;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    display: grid;
+    width:  1200px;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: 50px 600px;
+    grid-template-areas: "intro intro intro intro intro"
+                        "menu content content content content"
+                        ;
+    margin: 0px auto 0 auto ;
+    grid-row-gap: 50px;
+    grid-column-gap: 40px;
+    position: relative;
+
+}
+.container>div{
+    background-color: rgb(126, 99, 71,0.5);
+    font-size: 15px;
+    /*text-align: center;*/
+}
+.intro{
+    width: 100%;
+    grid-area:intro;
+    border: 0.5px solid white;
+    border-radius: 4px;
+    overflow:hidden;
+
+}
+
+.intro div{
+    border-radius: 3px;
+    border: 0.5px solid white;
+}
+.intro .icon{
+    padding: 0;
+    margin: 0;
+    float: left;
+
+    overflow: hidden;
+}
+.intro h1{
+    font-family: Calibri;
+    color: whitesmoke;
+    margin-top: 2px;
+    text-align: left;
+    height: 40px;
+    line-height: 40px;
+    text-indent: 20px;
+}
+.intro a{
+    float: right;
+    display: block;
+    text-decoration: none;
+    overflow:auto;
+    margin-right: 200px;
+    margin-top: 5px;
+}
+
+.menu{
+    grid-area: menu;
+    border:1px solid rgb(255, 255, 208);
+    border-radius: 10px;
+
+}
+.menu ul{
+    list-style-type: none;
+    text-align: left;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+
+}
+.menu ul li a{
+    background-position-x: 10px;
+    background-position-y: 3px;
+    background-repeat: no-repeat;
+    width: 186px;
+    height: 30px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    text-indent: 50px;
+    padding: 10px;
+}
+.menu ul li a:hover{
+    background-color: aqua;
+}
+
+.menu ul li a.home{
+    background-image: url("../img/home.png");
+}
+.menu ul li a.classroom{
+    background-image: url("../img/classroom.png");
+}
+.menu ul li a.student{
+    background-image: url("../img/student1.png");
+}
+.menu ul li a.lecturer{
+    background-image: url("../img/lecturer.png");
+}
+.menu ul li a.result{
+    background-image: url("../img/result.png");
+}
+.menu ul li a.contact{
+    background-image: url("../img/contact.png");
+}
+
+/*contect*/
+.content{
+    grid-area: content;
+    border: 0.5px solid white;
+    border-radius: 3px;
+}
+.content table{
+
+    width: 90%;
+    margin: 50px 50px;
+    border: 0.5px solid white;
+}
+
+.content th, td {
+    text-align: center;
+    padding: 8px;
+}
+.content tr:hover{
+    background-color: aqua;
+}
+th {
+    background-color: saddlebrown;
+    color: white;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+tr{background-color: navajowhite;}
+
+.content .content-intro{
+    text-align: center;
+    background-color: chocolate;
+    color: whitesmoke;
+    font-size: 20px;
+    font-family: sans-serif;
+    padding: 4px;
+
+}
+.content img{
+    width: 20%;
+    margin-left: 200px;
+    margin-top: 100px;
+    margin-right: -20px;
+    float: left;
+}
+.content .contact-info{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 150px;
+    color: whitesmoke;
+}
+
+.footer_logo{
+    width:5em; 
+    height:5em;
+}
