@@ -56,7 +56,7 @@ exports.getClasses = catchAsync( async (req,res,next) => {
 
         //console.log(year +',' + semester);
 
-        const query = `select subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, classes.status 
+        const query = `select DISTINCT subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, classes.status 
         from classes JOIN courses ON classes.course_Id = courses.course_Id
         JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
         where classes.student_Id = ${user.student_Id} and classes.school_year = ${year} and classes.semester = ${semester}`;
@@ -75,18 +75,18 @@ exports.getClasses = catchAsync( async (req,res,next) => {
 });
 
 exports.getGrades = catchAsync (async (req, res, next) => {
-    const {year, semester} = req.body;
-
     const user = req.user;
 
-    const query = `SELECT subject.subject_name ,grades.midterm, grades.final, grades.avarage FROM grades JOIN classes ON grades.class_Id = classes.class_Id
-    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject WHERE classes.school_year = ${year} AND classes.semester = ${semester} and classes.student_Id = ${user.student_Id}`;
+    const {year, semester} = req.body;
+
+    const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, grades.avarage FROM grades JOIN classes ON grades.class_Id = classes.class_Id
+    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE classes.school_year = ${year} AND classes.semester = ${semester} and classes.student_Id = ${user.student_Id}`;
 
     const grades = await queryFunc(query);
 
     if (grades.length === 0) return next(new appError(404, 'invalid year or semester'));
 
-    //console.log(grades);
+    console.log(grades);
 
     res.status(200).render('grade', {
         title: 'Grade',
