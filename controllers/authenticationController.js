@@ -111,4 +111,6 @@ exports.logout = (req, res) => {
 
 exports.changePass = catchAsync( async (req, res, next) => {
     const newPass = req.body.pass;
+
+    const query = `ALTER`
 });

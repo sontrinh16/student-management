@@ -1,5 +1,11 @@
 extends base
 block content
+    form.input-box(method='POST')
+        input(type='text' id='school_year' placeholder='Enter year' name='year' required)
+        | 
+        input(type='text' id='semester' placeholder='Enter semester' name='semester' required)
+        | 
+        button.search-button(type='submit' value='Submit') Search
     div
         table
             tr
