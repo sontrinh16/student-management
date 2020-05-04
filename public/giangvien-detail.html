@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <div class="intro">
+        <a href="login.html" title="Log out"><img src="img/login1.png" alt="Log out" ><span style="color:coral;margin-bottom:30px;font-family: Consolas"></span></a>
+        <div class="icon"><img src="img/icon1.png" alt ="icon truong"></div>
+        <h1>SIMPLE STUDENT MANAGEMENT</h1>
+
+    </div>
+    <div class="menu">
+        <ul>
+            <li><a class="home" href="html.html">Trang chủ</a></li>
+            <li><a class="classroom" href="lop.html">Lớp</a></li>
+            <li><a class="student" href="sinhvien.html">Sinh viên</a></li>
+            <li><a class="lecturer" href="giangvien.html">Giảng viên</a></li>
+            <li><a class="result" href="diem.html">Điểm thi</a></li>
+            <li><a class="contact" href="contact.html">Liên hệ</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="content-intro"> <b >Thông tin giảng viên</b></div>
+        <form method="post">
+            <div class="content-info">
+                <h3>Lecturer Info</h3>
+                <div class="row">
+                    <div class="col-25">
+                        <label >ID</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="lecturer-id" value="" disabled >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Full name </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="lecturer-name" value="" disabled >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Date of birth </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="student-birth" value="" disabled >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Gender </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="student-gender" >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Department </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="student-year" >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Role </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" name="student-role" >
+                    </div>
+                </div>
+                <!--            </form>-->
+            </div>
+            <div class="content-contact">
+                <h3>Contact Info</h3>
+                <!--            <form method="post">-->
+                <div class="row">
+                    <div class="col-25">
+                        <label >Address </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text"  name="student-address" >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Email </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text"  name="student-email" >
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label >Phone </label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text"  name="student-phone" >
+                    </div>
+
+                </div>
+
+                <!--            </form>-->
+            </div>
+            <div class="update-button">
+                <input type="submit" value="Update" title="update-info">
+            </div>
+            <div class="change-pass"><a href="giangvien.html">Back</a></div>
+        </form>
+    </div>
+</div>
+
+
+</body>
+</html>

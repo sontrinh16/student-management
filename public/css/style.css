@@ -86,14 +86,16 @@ body{
     display: block;
     border: none;
     border-bottom: 1px solid white;
-    color: white;
+    color: chocolate;
     text-decoration: none;
+    font-weight: bold;
     font-size: 15px;
     text-indent: 50px;
     padding: 10px;
 }
 .menu ul li a:hover{
-    background-color: aqua;
+    background-color: coral;
+    color: whitesmoke;
 }
 
 .menu ul li a.home{
@@ -165,6 +167,157 @@ tr{background-color: navajowhite;}
     color: whitesmoke;
 }
 
+.content .finding-box {
+    margin-top: 10px;
+    padding:0px;
+    background: transparent;
+    color: white;
+    border:none;
+    outline: none;
+    float: right;
+}
+
+ #txt2-search, #txt1-search{
+     position: relative;
+     width: 100px;
+     padding: 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid whitesmoke;
+    border-bottom-color: chocolate;
+    color: whitesmoke;
+
+}
+ #img-search{
+    background-color: transparent;
+     font-weight: bold;
+     color: chocolate;
+     border-radius: 5px;
+     border-color: chocolate;
+     padding: 4px;
+    margin-right: 20px;
+     cursor: pointer;
+ }
+ #img-search:hover{
+     background-color: coral;
+     color: whitesmoke;
+ }
+
+ /*Sinh vien*/
+.col-25 {
+    /*border: 1px solid whitesmoke;*/
+    float: left;
+    width: 30%;
+    margin-top: 0px;
+    /*background-color: pink;*/
+}
+
+.col-75 {
+    border-bottom: 1px solid coral;
+
+    float: left;
+    width: 50%;
+    margin-top: 6px;
+    margin-bottom: 0px;
+    /*background-color: red;*/
+}
+.content h3{
+    text-shadow: 2px 2px 5px saddlebrown;
+    text-decoration: underline;
+    text-align: left;
+    margin-top: 0px;
+    margin-block-end: 30px;
+    color: darksalmon;
+    font-family: sans-serif;
+}
+.content .content-info{
+    align-content: left;
+    margin-top: 50px;
+    margin-left: 50px;
+    padding: 20px;
+    border-style:dotted ;
+    border-color: coral;
+    box-sizing: border-box;
+    width: 45%;
+    float: left;
+}
+
+.content .content-contact{
+    margin-right: 50px;
+    margin-top: 50px;
+    padding: 20px;
+    border-style: dotted;
+    border-color: coral;
+    box-sizing: border-box;
+    width: 40%;
+    float: right;
+}
+.content label{
+    color: coral;
+    display: inline-block;
+    font-weight: bold;
+
+}
+.content  input{
+    padding: 3px;
+    background: transparent;
+    color: whitesmoke;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-family: Consolas;
+
+}
+.content .update-button{
+    box-sizing: border-box;
+    float:right;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 20px;
+    margin-right: 100px;
+    margin-left: 10px;
+    border: 2px solid coral ;
+    border-radius: 4px;
+    padding:3px;
+
+}
+.content .change-pass{
+
+    box-sizing: border-box;
+    float:right;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-top: 20px;
+    margin-right: 10px;
+    border: 2px solid coral ;
+    border-radius: 4px;
+    padding:3px;
+
+
+}
+
+.content .update-button a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: Consolas;
+
+}
+
+.content .change-pass a{
+    text-decoration: none;
+    color: whitesmoke;
+    font-size: 15px;
+    font-family: Consolas;
+
+}
+.content .change-pass:hover{
+    background-color: coral;
+}
+.content .update-button:hover{
+    background-color: coral;
+}
 .footer_logo{
     width:5em; 
     height:5em;

@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div class="intro">
-        <a href="login.html"><img src="img/login1.png"><span style="color: whitesmoke;margin-bottom:5px;font-family: Arial"></span></a>
+        <a href="login.html" title="Log out"><img src="img/login1.png" alt="Log out" ><span style="color:coral;margin-bottom:30px;font-family: Consolas"></span></a>
         <div class="icon"><img src="img/icon1.png" alt ="icon truong"></div>
         <h1>SIMPLE STUDENT MANAGEMENT</h1>
 
@@ -26,31 +26,110 @@
 
     <div class="content">
         <div class="content-intro"> <b >Thông tin sinh viên</b></div>
-        <div>
-            <table>
-                <tr>
-                    <th>Họ và tên</th>
-                    <th>MSSV</th>
-                    <th>Năm sinh</th>
-                    <th>Giới tính</th>
-                    <th>Email</th>
-                    <th>Ngành học</th>
-                    <th>Chức năng</th>
-                </tr>
-                <!--                    //XU LY BACK END-->
-                <tr>
-                    <td>Nguyễn Văn Việt</td>
-                    <td>18021087</td>
-                    <td>2000</td>
-                    <td>Nam</td>
-                    <td>18021087@vnu.edu.vn</td>
-                    <td>CNTT Việt-Nhật</td>
-                    <td><button style="background-color:yellowgreen ">detail</button><button  style="background-color:indianred">modify</button></td>
-                </tr>
-            </table>
+        <form method="post">
+            <div class="content-info">
+                <h3>Personal Info</h3>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >ID</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-id" value="" disabled >
+                        </div>
 
-        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Full name </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-name" value="" disabled >
+                        </div>
 
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Date of birth </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-birth" value="" disabled >
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Gender </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-gender" >
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >School year </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-year" >
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Major </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-major" >
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Role </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" name="student-role" >
+                        </div>
+                    </div>
+    <!--            </form>-->
+            </div>
+            <div class="content-contact">
+                <h3>Contact Info</h3>
+    <!--            <form method="post">-->
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Address </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text"  name="student-address" >
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Email </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text"  name="student-email" >
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label >Phone </label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text"  name="student-phone" >
+                        </div>
+
+                    </div>
+
+    <!--            </form>-->
+            </div>
+            <div class="update-button">
+                <input type="submit" value="Update" title="update-info">
+            </div>
+            <div class="change-pass"><a href="html.html">Change pass</a></div>
+        </form>
     </div>
 </div>
 

@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title= title
+        link(rel='icon' href='img/favicon-32x32.png' type='image/gif' sizes='32x32')
+        link(rel='stylesheet' href='css/style1.css')
+    body
+        .box
+            h2 Change Pass
+            form(method='post')
+                .inputbox
+                    input(type='password' name='current-password' placeholder='Enter current password' required)
+                    label Current password
+                
+                .inputbox
+                    input(type='password' name='new-password' placeholder='Enter new password' required)
+                    label New password
+            
+                .inputbox
+                    input(type='password' name='confirm-password' placeholder='Enter new password again' required)
+                    label Confirm password
+                
+                    button.login-button(type='submit' value='Submit') submit
+            

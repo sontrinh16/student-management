@@ -8,49 +8,44 @@ block content
                         .col-25
                             label ID
                         .col-75
-                            b= student.student_Id
+                            b= teacher.teacher_Id
                         
-                    .row
-                        .col-25
-                            label Full name
-                        .col-75
-                            b= student.full_name
+                    div
+                        row
+                            .col-25
+                                label Full name
+                            .col-75
+                                b= teacher.full_name
 
                     .row
                         .col-25
                             label Date of birth 
                         .col-75
-                            b= student.birthDay
+                            b= teacher.birthDay
                         
                     .row
                         .col-25
                             label Gender 
                         .col-75
-                            b= student.gender
+                            b= teacher.gender
 
                     .row
                         .col-25
-                            label School year 
+                            label Department 
                         .col-75
-                            b= student.school_year
-                        
-
-                    .row
-                        .col-25
-                            label Major
-                        .col-75
-                            b= student.major
+                            b= teacher.department
                         
                     .row
                         .col-25
                             label Role 
                         .col-75
-                            b= student.role
+                            b= teacher.role
+
                     .row
                         .col_25
                             label Other Details
                         .col-75
-                            p= student.other_details
+                            p= teacher.other_details
                         
             .content-contact
                 h3 Contact Info
@@ -59,24 +54,16 @@ block content
                             .col-25
                                 label Address
                             .col-75
-                                b= student.address
+                                b= teacher.address
                             
                         .row
                             .col-25
                                 label Email
                             .col-75
-                                b= student.email
+                                b= teacher.email
                 
                         .row
                             .col-25
                                 label Phone 
                             .col-75
-                                b= student.phone
-                            
-            .update-button
-                a(href='/student/update-profile') Update profile 
-            |      
-            .change-pass
-                a(href='/student/update-pass') Change pass
-    
-        
+                                b= teacher.phone

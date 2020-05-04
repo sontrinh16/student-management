@@ -6,6 +6,7 @@ const globalErrorHandler = require('./controllers/errorHandler');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const authController = require('./controllers/authenticationController');
+const teacherRouter = require('./routers/teacher');
 
 
 const app = express();
@@ -18,19 +19,27 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.status(200).redirect('/login');
+app.get('/',(req, res) => {
+    if (req.cookies.jwt)
+    {
+        res.status(200).redirect('/student/homepage');
+    }
+    else{
+        res.status(200).redirect('/login');
+    }
 })
 
 app.get('/login', (req, res) => {
     res.status(200).render('login',{
         title: 'Login'
     })
+    
 })
 
 app.post('/login', authController.login);
 
 app.use('/student', studentRouter);
+app.use('/teachers', teacherRouter)
 
 app.get('/logout', authController.logout)
 

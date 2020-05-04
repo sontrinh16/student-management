@@ -1,0 +1,60 @@
+extends base
+block content
+    .content
+        form(method='post')
+            .content-info
+                h3 Personal Info
+                    .row
+                        .col-25
+                            label Full name
+                        .col-75
+                            input(type='text' name='full_name')
+                        
+                    .row
+                        .col-25
+                            label Gender 
+                        .col-75
+                            input(type='text' name='gender')
+
+                    .row
+                        .col-25
+                            label School year 
+                        .col-75
+                            input(type='text' name='school_year')
+                        
+
+                    .row
+                        .col-25
+                            label Major
+                        .col-75
+                            input(type='text' name='major')
+                        
+                    .row
+                        .col_25
+                            label Other Details
+                        .col-75
+                            input(type='text' name='other_details')
+                        
+            .content-contact
+                h3 Contact Info
+                    .row
+                        .col-25
+                            label Address
+                        .col-75
+                            input(type='text'  name='address')
+                            
+                    .row
+                        .col-25
+                            label Email
+                        .col-75
+                            input(type='text'  name='email')
+                
+                    .row
+                        .col-25
+                            label Phone 
+                        .col-75
+                            input(type='text'  name='phone')
+                            
+            .update-button
+                input(type='submit' value='Update' title='update-info')
+            

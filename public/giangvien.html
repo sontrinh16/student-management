@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <div class="intro">
-        <a href="login.html"><img src="img/login1.png"><span style="color: whitesmoke;margin-bottom:5px;font-family: Arial"></span></a>
+        <a href="login.html" title="Log out"><img src="img/login1.png"><span style="color: whitesmoke;margin-bottom:5px;font-family: Arial"></span></a>
         <div class="icon"><img src="img/icon1.png" alt ="icon truong"></div>
         <h1>SIMPLE STUDENT MANAGEMENT</h1>
 
@@ -26,54 +26,34 @@
 
     <div class="content">
         <div class="content-intro"> <b >Thông tin giảng viên</b></div>
+        <div class="finding-box">
+            <form>
+                <input id="txt1-search" type="text" name="year" placeholder="Enter year">
+                <input id="txt2-search" type="text" name="semester" placeholder="Enter semester" >
+                <input id="img-search" type="submit" value="Search" >
+            </form>
+        </div>
               <div>
                   <table>
                       <tr>
-                          <th>Họ và tên</th>
-                          <th>Sinh năm</th>
-                          <th>Giới tính</th>
+                          <th>Full name</th>
+                          <th>Date of birth</th>
                           <th>Email</th>
-                          <th>Khoa</th>
-                          <th>Môn học</th>
-                          <th>Chức năng</th>
+                          <th>Department</th>
+                          <th>Function</th>
                       </tr>
                       <!--                    XU LY BACK END -->
                       <tr>
                           <td>Nguyễn Đình Việt</td>
                           <td>1980</td>
-                          <td>Nam</td>
                           <td>vietdinhng@vnu.edu.vn</td>
                           <td>FIT</td>
-                          <td>Xác suất thông kê</td>
-                          <td><button style="background-color:yellowgreen ">detail</button><button  style="background-color:indianred">del</button></td>
+                          <td>
+                              <a href="giangvien-detail.html" style="background-color:yellowgreen;text-decoration:none ">detail</a>
+                              <button  style="background-color:indianred;border: none">del</button>
+                          </td>
                       </tr>
-                      <tr>
-                          <td>Nguyễn Hoài Sơn</td>
-                          <td>1980</td>
-                          <td>Nam</td>
-                          <td>hoaisonng@vnu.edu.vn</td>
-                          <td>FIT</td>
-                          <td>Mạng máy tính</td>
-                          <td><button style="background-color:yellowgreen ">detail</button><button  style="background-color:indianred">del</button></td>
-                      </tr>
-                      <tr>
-                          <td>Nguyễn Hoài Sơn</td>
-                          <td>1980</td>
-                          <td>Nam</td>
-                          <td>hoaisonng@vnu.edu.vn</td>
-                          <td>FIT</td>
-                          <td>Mạng máy tính</td>
-                          <td><button style="background-color:yellowgreen ">detail</button><button  style="background-color:indianred">del</button></td>
-                      </tr>
-                      <tr>
-                          <td>Nguyễn Hoài Sơn</td>
-                          <td>1980</td>
-                          <td>Nam</td>
-                          <td>hoaisonng@vnu.edu.vn</td>
-                          <td>FIT</td>
-                          <td>Mạng máy tính</td>
-                          <td><button style="background-color:yellowgreen ">detail</button><button  style="background-color:indianred">del</button></td>
-                      </tr>
+
                   </table>
               </div>
     </div>

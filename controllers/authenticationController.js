@@ -26,7 +26,7 @@ exports.login =catchAsync( async (req, res, next) => {
 
     const users = await queryFunc(query);
 
-    if (users.length === 0) return next(new appError(404, 'invalid username or password'));
+    if (users.length === 0) return next(new appError(401, 'invalid username or password'));
 
     const user = users[0];
 
@@ -80,11 +80,11 @@ exports.isLogging = catchAsync( async (req, res, next) => {
 
         const student = students[0];
 
-        if (student.length === 0) return next(new appError(400, 'username of password is not exist'));
+        if (student.length === 0) return next(new appError(401, 'username of password is not exist'));
 
         //console.log(student);
         
-        if (checkPassChangeAfter(student.pass_change_at, decoded.iat)) return next(new appError(400, 'username of password is not exist'));
+        if (checkPassChangeAfter(student.pass_change_at, decoded.iat)) return next(new appError(401, 'username of password is not exist'));
 
         student.pass = undefined;    
 
@@ -93,7 +93,7 @@ exports.isLogging = catchAsync( async (req, res, next) => {
         res.locals.user = student;
         return next();
     }
-    next(new appError(400, 'please login first'));
+    next(new appError(401, 'please login first'));
 });
 
 exports.logout = (req, res) => {
@@ -109,8 +109,27 @@ exports.logout = (req, res) => {
     res.status(200).redirect('/login');
 }
 
+exports.renderUpdatePass = (req, res) => {
+    res.status(200).render('changePass', {
+        title: 'Update Pass'
+    })
+}
+
 exports.changePass = catchAsync( async (req, res, next) => {
     const newPass = req.body.pass;
+    const user = req.user;
 
-    const query = `ALTER`
+    const query = `update students
+                set students.pass = '${newPass}'
+                where students.student_Id = ${user.student_Id}`
+            
+            await queryFunc(query);
+
 });
+
+exports.checkNewPass = (req, res, next) => {
+    if (req.body.new-password !== req.body.confirm-password) {
+        return next(new appError(400, 'confirm pass should be the same with new pass'))
+    }
+    next();
+}
