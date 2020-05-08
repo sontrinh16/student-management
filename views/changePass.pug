@@ -10,15 +10,11 @@ html
             h2 Change Pass
             form(method='post')
                 .inputbox
-                    input(type='password' name='current-password' placeholder='Enter current password' required)
-                    label Current password
-                
-                .inputbox
-                    input(type='password' name='new-password' placeholder='Enter new password' required)
+                    input(type='password' name='new_password' placeholder='Enter new password' required)
                     label New password
             
                 .inputbox
-                    input(type='password' name='confirm-password' placeholder='Enter new password again' required)
+                    input(type='password' name='confirm_password' placeholder='Enter new password again' required)
                     label Confirm password
                 
                     button.login-button(type='submit' value='Submit') submit

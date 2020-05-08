@@ -104,8 +104,8 @@ exports.logout = (req, res) => {
         httpOnly: true
         //secure: true
     }
-    res.cookie('jwt', 'logout', cookieOptions);
-
+    //res.cookie('jwt', 'logout', cookieOptions);
+    res.clearCookie('jwt');
     res.status(200).redirect('/login');
 }
 
@@ -116,19 +116,22 @@ exports.renderUpdatePass = (req, res) => {
 }
 
 exports.changePass = catchAsync( async (req, res, next) => {
-    const newPass = req.body.pass;
+    const newPass = req.body.new_password;
     const user = req.user;
 
     const query = `update students
                 set students.pass = '${newPass}'
+                set students.pass_change_at = NOW()
                 where students.student_Id = ${user.student_Id}`
             
             await queryFunc(query);
+    
+    res.status(200).redirect('/student/profile');
 
 });
 
 exports.checkNewPass = (req, res, next) => {
-    if (req.body.new-password !== req.body.confirm-password) {
+    if (req.body.new_password !== req.body.confirm_password) {
         return next(new appError(400, 'confirm pass should be the same with new pass'))
     }
     next();
