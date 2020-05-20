@@ -1,42 +1,45 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon-32x32.png" type="image/gif" sizes="32x32">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title></title>
 </head>
+
 <body>
-<div class="container">
-    <div class="intro">
-        <a href="login.html" title="Log out"><img src="img/login1.png"><span style="color: whitesmoke;margin-bottom:5px;font-family: Arial"></span></a>
-        <div class="icon"><img src="img/icon1.png" alt ="icon truong"></div>
-        <h1>SIMPLE STUDENT MANAGEMENT</h1>
-
-    </div>
-    <div class="menu">
-        <ul>
-            <li><a class="home" href="html.html">Trang chủ</a></li>
-            <li><a class="classroom" href="lop.html">Lớp</a></li>
-            <li><a class="student" href="sinhvien.html">Sinh viên</a></li>
-            <li><a class="lecturer" href="giangvien.html">Giảng viên</a></li>
-            <li><a class="result" href="diem.html">Điểm thi</a></li>
-            <li><a class="contact" href="contact.html">Liên hệ</a></li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <div class="content-intro"> <b >Trang chủ</b></div>
-
-
-<!--        <div>-->
-<!--            <form>-->
-<!--            <input type="text" id="name" name="name">-->
-<!--                <label for="name"style="color:white;font-style:italic">Tìm kiếm theo tên:</label>-->
-<!--            </form>-->
-<!--        </div>-->
+<div class="intro">
+    <div class="container-fluid">
+        <nav class="navbar menu"><a class="navbar-brand" href="#"><img src="img/uet-logo.png" width="48" height="48" alt="">
+            <div class="slogan"><b class="text-brand">UET</b>
+                <p>Creative Thinking for the Future</p>
+            </div>
+        </a><a class="logout" href="/logout"> <img src="img/sign-out.svg" height="16px"><span class="ml-1">Logout</span></a></nav>
     </div>
 </div>
-
-
+<div class="container-fluid">
+    <div class="row content">
+        <div class="sidebar-menu">
+            <div class="sidebar">
+                <ul>
+                    <li><i class="fas fa-home"></i><a class="home" href="html.html">Trang chủ</a></li>
+                    <li><i class="fas fa-school"></i><a class="classroom" href="lop.html">Lớp</a></li>
+                    <li><i class="fas fa-user"></i><a class="student" href="sinhvien.html">Sinh viên</a></li>
+                    <li><i class="fas fa-chalkboard-teacher"></i><a class="lecturer" href="giangvien.html">Giảng viên</a></li>
+                    <li><i class="fas fa-award"></i><a class="result" href="diem.html">Điểm thi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard m-3">
+            <div class="content-intro"></div>
+            <div class="content-container"></div>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>

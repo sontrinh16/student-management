@@ -22,9 +22,9 @@ exports.getStudent =catchAsync( async (req,res,next) => {
 
         const student = results[0];
 
-        //if(student.other_details === null) student.other_details = 'none';
+        if(student.other_details === null) student.other_details = 'none';
 
-        res.status(200).render('student', {
+        res.status(200).render('student2', {
             student,
             title: 'Student Profile'
         })
@@ -39,7 +39,7 @@ exports.getClasses = catchAsync( async (req,res,next) => {
 
         //console.log(year +',' + semester);
 
-        const query = `select DISTINCT subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
+        const query = `select DISTINCT classes.class_Id, subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
         from classes JOIN courses ON classes.course_Id = courses.course_Id
         JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
         where classes.student_Id = ${user.student_Id} and classes.school_year = ${year} and classes.semester = ${semester}`;

@@ -2,23 +2,33 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/style1.css">
+    <title></title>
+    <link rel="icon" href="img/favicon-32x32.png" type="image/gif" sizes="32x32">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 </head>
+
 <body>
-    <div class="box">
-        <h2>Login</h2>
-        <form>
-            <div class="inputbox">
-                <input type="text" name="user">
-                <label>Username</label>
+<div class="intro">
+    <div class="container-fluid">
+        <nav class="navbar menu"><a class="navbar-brand" href="#"><img src="img/uet-logo.png" width="48" height="48" alt="">
+            <div class="slogan"><b class="text-brand">UET</b>
+                <p>Creative Thinking for the Future</p>
             </div>
-            <div class ="inputbox">
-                <input type="password" name="user">
-                <label>Password</label>
-            </div>
-            <input type="submit" value="Sumbit">
-        </form>
+        </a><a class="logout" href="/logout"> <img src="img/sign-out.svg" height="16px"><span class="ml-1">Logout</span></a></nav>
     </div>
+</div>
+<div class="login">
+    <h2 class="text-center" style="color: #3c8dbc">Login</h2>
+    <form method="POST">
+        <div class="form-group">
+            <div class="inputbox"><label for="username"><b>Username :</b></label><input class="form-control" type="text" id="username" placeholder="Enter username" name="username" required></div>
+            <div class="inputbox"><label for="password"><b>Password :</b></label><input class="form-control" type="password" id="password" placeholder="Enter password" name="psw" required></div>
+            <input class="btn btn-primary btn-block" type="submit" value="Submit"></input>
+        </div>
+    </form>
+</div>
 </body>
+
 </html>

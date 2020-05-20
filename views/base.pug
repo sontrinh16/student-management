@@ -2,50 +2,54 @@ doctype html
 html(lang='en')
     head
         meta(charset='UTF-8')
-        link(rel='stylesheet' href='css/style.css')
+        link(rel='stylesheet' href='css/style.css' type='text/css')
         link(rel='icon' href='img/favicon-32x32.png' type='image/gif' sizes='32x32')
-        title= title
+        script(src='https://kit.fontawesome.com/a076d05399.js')
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+        title=title
 
     body
-        .container
-            .intro
-                a(href='/logout') 
-                    img(src='img/login1.png') 
-                    span(style='color: whitesmoke;margin-bottom:5px;font-family: Arial')
-                .icon
-                    img(src='img/icon1.png' alt ='icon truong')
-                h1 SIMPLE STUDENT MANAGEMENT
-
-            .menu
-                ul
-                    li
-                        a.home(href='/student/homepage') Trang chủ
-                    li
-                        a.classroom(href='/student/classes') Lớp
-                    li
-                        a.student(href='/student/profile') Sinh viên
-                    li
-                        a.lecturer(href='/teachers') Giảng viên
-                    li
-                        a.result(href='/student/grades') Điểm thi
-                   
-            .content
-                .content-intro= title   
-                block content
+        .intro
+            .container-fluid
+                nav(class='navbar menu') 
+                    a(class='navbar-brand' href='#')
+                        img(src='img/uet-logo.png' width='48' height='48' alt='')
+                        .slogan
+                            b(class='text-brand') UET
+                            p Creative Thinking for the Future
+                    
+                    a(class='logout' href='/logout') 
+                        img(src='img/sign-out.svg' height='16px')
+                        span(class='ml-1') Logout
+            
+        
+        .container-fluid
+            div(class='row content')
+                .sidebar-menu
+                    .sidebar
+                        ul
+                            li
+                                i(class='fas fa-home')
+                                a(class='home' href='/student/homepage') Trang chủ
+                            li
+                                i(class='fas fa-school')
+                                a(class='classroom' href='/student/classes') Lớp
+                            li 
+                                i(class='fas fa-user')
+                                a(class='student' href='/student/profile') Sinh viên
+                            li 
+                                i(class='fas fa-chalkboard-teacher')
+                                a(class='lecturer' href='/teachers') Giảng viên
+                            li 
+                                i(class='fas fa-award')
+                                a(class='result' href='/student/grades') Điểm thi
+                        
+                        
+                .content
+                    block content
                      
 
-        footer.footer
-            .content-intro
-                b Liên hệ
-            //-img.footer_logo(src='img/logocontact.png')
-            .contact-info
-                //-h3(style='color: coral') Web quản lý sinh viên
-                ul(style='color: coral;')
-                    li Developed by: INT2207 7 
-                    li Phone: 0989930624 
-                    li Email: logan189@gmail.com
-                    li Adress: 144 Xuân Thủy, Mai Dịch, Cầu Giấy, Hà Nội 
-                    li ©No copyright 
+      
             
     
 

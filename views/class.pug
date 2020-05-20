@@ -1,31 +1,43 @@
 extends base
 block content
     .content
-        .finding-box
-                form.input-box(method='POST')
-                        input(id='txt1-search' type='text' name='year' placeholder='Enter year')
-                        | 
-                        input(id='txt2-search' type='text' name='semester' placeholder='Enter semester')
-                        input(id='img-search' type='submit' value='Search')
-        div
-            table
-                tr
-                    th Name
-                    th Room
-                    th Building
-                    th On
-                    th Period
-                    th Status
-                    th Teacher
+        div(class='dashboard m-3')
+            .content-intro #{title}
+            hr
+            .content-container
+                div(class='d-flex justify-content-end align-items-center')
+                    form(class='input-box' method='POST')
+
+                        input(type='text' id='txt1-search' class='form-input m-1' name='name' placeholder='Enter year')
+                        input(type='text' id='txt2-search' class='form-input m-1' name='name' placeholder='Enter semester')
+                        input(class='btn btn-primary  m-1' id='img-search' type='submit' value='Search')
+
+                div
+                    table(class='table mt-5 table-bordered')
+                        thead
+                            tr
+                                th ID
+                                th Name
+                                th Room
+                                th Building
+                                th On
+                                th Period
+                                th Status
+                                th Teacher
+
+                            
                         
-                each i in classes
-                    tr
-                        td= i.subject_name
-                        td= i.room
-                        td= i.building
-                        td= i.class_on
-                        td= i.period
-                        td= i.status
-                        td
-                            a(href=`/teachers/${i.teacher_Id}` style='background-color:yellowgreen;text-decoration:none') #{i.full_name}
+                        each i in classes
+                            tr
+                                td= i.class_Id
+                                td= i.subject_name
+                                td= i.room
+                                td= i.building
+                                td= i.class_on
+                                td= i.period
+                                td= i.status
+                                td
+                                    a(href=`/teachers/${i.teacher_Id}`) #{i.full_name}
+                        
+                    
                         

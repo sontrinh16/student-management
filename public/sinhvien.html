@@ -2,137 +2,154 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="icon" href="img/favicon-32x32.png" type="image/gif" sizes="32x32">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title></title>
 </head>
 <body>
-<div class="container">
-    <div class="intro">
-        <a href="login.html" title="Log out"><img src="img/login1.png" alt="Log out" ><span style="color:coral;margin-bottom:30px;font-family: Consolas"></span></a>
-        <div class="icon"><img src="img/icon1.png" alt ="icon truong"></div>
-        <h1>SIMPLE STUDENT MANAGEMENT</h1>
-
-    </div>
-    <div class="menu">
-        <ul>
-            <li><a class="home" href="html.html">Trang chủ</a></li>
-            <li><a class="classroom" href="lop.html">Lớp</a></li>
-            <li><a class="student" href="sinhvien.html">Sinh viên</a></li>
-            <li><a class="lecturer" href="giangvien.html">Giảng viên</a></li>
-            <li><a class="result" href="diem.html">Điểm thi</a></li>
-            <li><a class="contact" href="contact.html">Liên hệ</a></li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <div class="content-intro"> <b >Thông tin sinh viên</b></div>
-        <form method="post">
-            <div class="content-info">
-                <h3>Personal Info</h3>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >ID</label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-id" value="" disabled >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Full name </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-name" value="" disabled >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Date of birth </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-birth" value="" disabled >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Gender </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-gender" >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >School year </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-year" >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Major </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-major" >
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Role </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text" name="student-role" >
-                        </div>
-                    </div>
-    <!--            </form>-->
+<div class="intro">
+    <div class="container-fluid">
+        <nav class="navbar menu"><a class="navbar-brand" href="#"><img src="img/uet-logo.png" width="48" height="48" alt="">
+            <div class="slogan"><b class="text-brand">UET</b>
+                <p>Creative Thinking for the Future</p>
             </div>
-            <div class="content-contact">
-                <h3>Contact Info</h3>
-    <!--            <form method="post">-->
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Address </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text"  name="student-address" >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Email </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text"  name="student-email" >
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-25">
-                            <label >Phone </label>
-                        </div>
-                        <div class="col-75">
-                            <input type="text"  name="student-phone" >
-                        </div>
-
-                    </div>
-
-    <!--            </form>-->
-            </div>
-            <div class="update-button">
-                <input type="submit" value="Update" title="update-info">
-            </div>
-            <div class="change-pass"><a href="html.html">Change pass</a></div>
-        </form>
+        </a><a class="logout" href="/logout"> <img src="img/sign-out.svg" height="16px"><span class="ml-1">Logout</span></a></nav>
     </div>
 </div>
-
-
+<div class="container-fluid">
+    <div class="row content">
+        <div class="sidebar-menu">
+            <div class="sidebar">
+                <ul>
+                    <li><i class="fas fa-home"></i><a class="home" href="html.html">Trang chủ</a></li>
+                    <li><i class="fas fa-school"></i><a class="classroom" href="lop.html">Lớp</a></li>
+                    <li><i class="fas fa-user"></i><a class="student" href="sinhvien.html">Sinh viên</a></li>
+                    <li><i class="fas fa-chalkboard-teacher"></i><a class="lecturer" href="giangvien.html">Giảng viên</a></li>
+                    <li><i class="fas fa-award"></i><a class="result" href="diem.html">Điểm thi</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard m-3">
+            <div class="content-intro " >STUDENT</div>
+            <hr>
+            <div class="content-container">
+                <form  class="mt-5" action="" method="post">
+                    <div class="form-group">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="container-fluid" >
+                                        <fieldset  >
+                                            <legend > Personal Info</legend>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>ID</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-id" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>FullName</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-name" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Date of birth</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-birth" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Gender</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-gender" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>School year</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-school-year" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Major</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-major" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Role</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-role" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label> Other Details</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-otherdetails" value="" disabled >
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="container-fluid">
+                                        <fieldset >
+                                            <legend  >Contact Info</legend>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Address</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-dddress" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Email</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-email" value="" disabled >
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <label>Phone</label>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <input type="text" name="lecturer-phone" value="" disabled >
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <input class="btn btn-primary  m-1" id='img-search' type='submit' value='Update'>
+                                    <a class="btn btn-primary m-1" href="changepass.html">Change Pass</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

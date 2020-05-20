@@ -2,21 +2,36 @@ doctype html
 html
     head
         meta(charset='UTF-8')
-        title= title
+        title=title
         link(rel='icon' href='img/favicon-32x32.png' type='image/gif' sizes='32x32')
-        link(rel='stylesheet' href='css/style1.css')
+        link(rel='stylesheet' href='css/style.css')
+        script(src='https://kit.fontawesome.com/a076d05399.js')
+        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+
     body
-        .box
-            h2 Login
+        .intro
+            .container-fluid
+                nav(class='navbar menu') 
+                    a(class='navbar-brand' href='#')
+                        img(src='img/uet-logo.png' width='48' height='48' alt='')
+                        .slogan
+                            b(class='text-brand') UET
+                            p Creative Thinking for the Future
+                    
+            
+        .login
+            h2(class='text-center' style='color: #3c8dbc') Login
             form(method='POST')
-                .box-container
+                .form-group
                     .inputbox
                         label(for='username')
-                            b Username
-                        input(type='text' id='username' placeholder='Enter Username' name='username' required)
+                            b Username :
+                        input(class='form-control' type='text' id='username' placeholder='Enter username' name='username' required)
                     .inputbox
-                        label(for='psw')
-                            b Password
-                        input(type='password' id='password' placeholder='Enter Password' name='psw' required)
+                        label(for='password')
+                            b Password :
+                        input(class='form-control' type='password' id='password' placeholder='Enter password' name='psw' required)
+                    input(class='btn btn-primary btn-block' type='submit' value='Submit')
                 
-                    button.login-button(type='submit' value='Submit') login
+            
+        
