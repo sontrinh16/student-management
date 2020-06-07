@@ -37,6 +37,8 @@ exports.getTeacher = catchAsync (async (req, res, next) => {
 
     const teacher = teachers[0];
 
+    if(teacher.other_details === null) teacher.other_details = 'none';
+
     res.status(200).render('teacher-detail', {
         teacher,
         title: 'Teacher'

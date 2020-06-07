@@ -15,21 +15,25 @@ block content
                 table(class='table mt-5 table-bordered')
                     thead
                         tr
-                            th Subject
-                            th Mid term
-                            th Final
-                            th Avarage
-                            th School year
-                            th Semester
+                            th ID
+                            th Name
+                            th Room
+                            th Building
+                            th On
+                            th Period
                             th Status
+                            th Teacher
 
                             
-                    each a in grades
+                        
+                    each i in classes
                         tr
-                            td= a.subject_name
-                            td= a.midterm
-                            td= a.final
-                            td= a.avarage
-                            td= a.school_year
-                            td= a.semester
-                            td= a.status
+                            td= i.class_Id
+                            td= i.subject_name
+                            td= i.room
+                            td= i.building
+                            td= i.class_on
+                            td= i.period
+                            td= i.status
+                            td
+                                a(href=`/teachers/${i.teacher_Id}`) #{i.full_name}

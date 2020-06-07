@@ -1,60 +1,69 @@
 extends base
 block content
-    .content
-        form(method='post')
-            .content-info
-                h3 Personal Info
-                    .row
-                        .col-25
-                            label Full name
-                        .col-75
-                            input(type='text' name='full_name')
-                        
-                    .row
-                        .col-25
-                            label Gender 
-                        .col-75
-                            input(type='text' name='gender')
+    .dashboard.m-3
+        .content-intro #{title}
+        hr
+        .content-container
+            form.mt-5(action='', method='post')
+                .form-group
+                    .container
+                        .row
+                            .col-md-6
+                                .container-fluid
+                                    fieldset
+                                        legend  Personal Info
+                                        .row
+                                            .col-md-3
+                                                label FullName
+                                            .col-md-9
+                                                input(type='text', name='full_name')
+                                        .row
+                                            .col-md-3
+                                                label Gender
+                                            .col-md-9
+                                                input(type='text', name='gender')
+                                        .row
+                                            .col-md-3
+                                                label School year
+                                            .col-md-9
+                                                input(type='text', name='school_year')
+                                        .row
+                                            .col-md-3
+                                                label Major
+                                            .col-md-9
+                                                input(type='text', name='major')
+                                        .row
+                                            .col-md-3
+                                                label Role
+                                            .col-md-9
+                                                input(type='text', name='role')
+                                        .row
+                                            .col-md-3
+                                                label  Other Details
+                                            .col-md-9
+                                                input(type='text', name='other_details')
+                            .col-md-6
+                                .container-fluid
+                                    fieldset
+                                        legend Contact Info
+                                        .row
+                                            .col-md-3
+                                                label Address
+                                            .col-md-9
+                                                input(type='text', name='address')
+                                        .row
+                                            .col-md-3
+                                                label Email
+                                            .col-md-9
+                                                input(type='text', name='email')
+                                        .row
+                                            .col-md-3
+                                                label Phone
+                                            .col-md-9
+                                                input(type='text', name='phone')
+                                input(id='img-search' class='btn btn-primary m-1' type='submit', value='Update', title='update-info')
+                                
 
-                    .row
-                        .col-25
-                            label School year 
-                        .col-75
-                            input(type='text' name='school_year')
-                        
-
-                    .row
-                        .col-25
-                            label Major
-                        .col-75
-                            input(type='text' name='major')
-                        
-                    .row
-                        .col_25
-                            label Other Details
-                        .col-75
-                            input(type='text' name='other_details')
-                        
-            .content-contact
-                h3 Contact Info
-                    .row
-                        .col-25
-                            label Address
-                        .col-75
-                            input(type='text'  name='address')
                             
-                    .row
-                        .col-25
-                            label Email
-                        .col-75
-                            input(type='text'  name='email')
-                
-                    .row
-                        .col-25
-                            label Phone 
-                        .col-75
-                            input(type='text'  name='phone')
-                            
-            .update-button
-                input(type='submit' value='Update' title='update-info')
+            
             

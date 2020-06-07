@@ -2,6 +2,7 @@ const connection =  require('./../connection');
 const util = require('util');
 const catchAsync = require('./../utils/catchAsync');
 const appError = require('./../utils/appError');
+const toUpper = require('./../utils/upperCase');
 
 const queryFunc = util.promisify(connection.query).bind(connection);
 
@@ -39,14 +40,19 @@ exports.getClasses = catchAsync( async (req,res,next) => {
 
         //console.log(year +',' + semester);
 
+        if (year !== '' && semester === '') condition = `classes.school_year = ${year}`;
+        else if (semester !== '' && year === '') condition = `classes.semester = ${semester}`;
+        else if (semester !== '' && year !== '') condition = `classes.school_year = ${year} AND classes.semester = ${semester}`;
+        else return next(new appError(401, 'please enter valid infor'));
+
         const query = `select DISTINCT classes.class_Id, subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
         from classes JOIN courses ON classes.course_Id = courses.course_Id
         JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
-        where classes.student_Id = ${user.student_Id} and classes.school_year = ${year} and classes.semester = ${semester}`;
+        where classes.student_Id = ${user.student_Id} and ${condition}`;
 
         const classes = await queryFunc(query);
 
-        if (classes.length === 0) return next(new appError(404, 'invalid year or semester'));
+        if (classes.length === 0) return next(new appError(404, 'Not found'));
 
         //console.log(classes[0]);
 
@@ -62,12 +68,22 @@ exports.getGrades = catchAsync (async (req, res, next) => {
 
     const {year, semester} = req.body;
 
-    const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm + grades.final)/2 as avarage FROM grades JOIN classes ON grades.class_Id = classes.class_Id
-    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE classes.school_year = ${year} AND classes.semester = ${semester} and classes.student_Id = ${user.student_Id}`;
+    let condition = '';
+
+    console.log(year)
+    console.log(semester)
+
+    if (year !== '' && semester === '') condition = `classes.school_year = ${year}`;
+    else if (semester !== '' && year === '') condition = `classes.semester = ${semester}`;
+    else if (semester !== '' && year !== '') condition = `classes.school_year = ${year} AND classes.semester = ${semester}`;
+    else return next(new appError(401, 'please enter valid infor'));
+
+    const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm *0.4 + grades.final * 0.6) as avarage, classes.school_year, classes.semester, classes.status FROM grades JOIN classes ON grades.class_Id = classes.class_Id
+    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE ${condition} AND classes.student_Id = ${user.student_Id} ORDER BY classes.semester desc`;
 
     const grades = await queryFunc(query);
 
-    if (grades.length === 0) return next(new appError(404, 'invalid year or semester'));
+    if (grades.length === 0) return next(new appError(404, 'Not found'));
 
     console.log(grades);
 
@@ -81,9 +97,14 @@ exports.updateStudent = catchAsync( async (req, res, next) => {
     const updateInput = req.body;
     const user = req.user;
 
+    //updateInput.full_name = toUpper(updateInput.full_name);
 
-    for (i in updateInput){
+    //console.log(updateInput.full_name)
+
+    for (i in updateInput) {
         if( updateInput[i] !== ''){
+            if( i != 'other_details' && i != 'address' && i != 'email') updateInput[i] = toUpper(updateInput[i]);
+
             //console.log(i + ':' + updateInput[i]);
             const query = `update students
                  set students.${i} = '${updateInput[i]}'
@@ -102,17 +123,39 @@ exports.loginRender = (req, res) => {
     })
 }
 
-exports.renderClasses = (req, res) => {
-    res.status(200).render('renderInputBox',{
-        title: 'Class'
-    })
-}
+exports.renderClasses = catchAsync( async (req, res, next) => {
+    const user = req.user;
 
-exports.renderGrade = (req, res) => {
-    res.status(200).render('renderInputBox', {
-        title: 'Grade'
+    const query = `select DISTINCT classes.class_Id, subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
+        from classes JOIN courses ON classes.course_Id = courses.course_Id
+        JOIN teachers ON courses.teacher_Id = teachers.teacher_Id JOIN subject ON subject.subject_Id = courses.subject_Id
+        where classes.student_Id = ${user.student_Id} and classes.status = 'in progress' `;
+
+        const classes = await queryFunc(query);
+
+        if (classes.length === 0) return next(new appError(404, 'Not found'));
+
+    res.status(200).render('renderInputBoxClass',{
+        title: 'Class',
+        classes: classes
     })
-}
+})
+
+exports.renderGrade = catchAsync(async (req, res, next) => {
+    const user = req.user;
+
+    const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm *0.4 + grades.final * 0.6) as avarage, classes.school_year, classes.semester, classes.status FROM grades JOIN classes ON grades.class_Id = classes.class_Id
+    JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE classes.student_Id = ${user.student_Id} order by classes.school_year desc, classes.semester desc limit 5`;
+
+    const grades = await queryFunc(query);
+
+    if (grades.length === 0) return next(new appError(404, 'Not found'));
+
+    res.status(200).render('renderInputBoxGrade', {
+        title: 'Grade',
+        grades: grades 
+    })
+})
 
 exports.renderUpdate = (req, res) => {
     res.status(200).render('inputUpdate', {

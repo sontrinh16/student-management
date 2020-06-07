@@ -1,45 +1,38 @@
 doctype html
 html(lang='en')
-    head
-        meta(charset='UTF-8')
-        link(rel='stylesheet' href='css/style.css' type='text/css')
-        link(rel='icon' href='img/favicon-32x32.png' type='image/gif' sizes='32x32')
-        script(src='https://kit.fontawesome.com/a076d05399.js')
-        link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
-        title=title
-
-    body
-        .intro
-            .container-fluid
-                nav(class='navbar menu') 
-                    a(class='navbar-brand' href='#')
-                        img(src='img/uet-logo.png' width='48' height='48' alt='')
-                        .slogan
-                            b(class='text-brand') UET
-                            p Creative Thinking for the Future
-                    
-                    a(class='logout' href='/logout') 
-                        img(src='img/sign-out.svg' height='16px')
-                        span(class='ml-1') Logout
-
-        .login
-            h2(class='text-center' style='color: #3c8dbc') Change Password
-            form(action='' methor='POST')
-                .form-group
-                    .inputbox
-                        label
-                            b New password
-                        input(class='form-control' type='password' name='new_password' placeholder='Enter new password' required)
-                   
-                    .inputbox
-                        label 
-                            b New password
-                        input(class='form-control' type='password' name='new_password' placeholder='Enter new password' required)
-                    
-                    .inputbox
-                        label
-                            b Confirm password
-                        input(class='form-control' type='password' name='new_password' placeholder='Enter new password' required)
-                    
-                    input(class='btn btn-primary btn-block' type='submit' value='Submit')
-                
+	head
+		meta(charset='UTF-8')
+		link(rel='stylesheet', href='css/style.css', type='text/css')
+		link(rel='icon', href='img/favicon-32x32.png', type='image/gif', sizes='32x32')
+		script(src='https://kit.fontawesome.com/a076d05399.js')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css')
+		title
+	body
+		.intro
+			.container-fluid
+				nav.navbar.menu
+					a.navbar-brand(href='#')
+						img(src='img/uet-logo.png', width='48', height='48', alt='')
+						.slogan
+							b.text-brand UET
+							p Creative Thinking for the Future
+					a.logout(href='/logout')
+						img(src='img/sign-out.svg', height='16px')
+						span.ml-1 Logout
+		.login
+			h2.text-center(style='color: #3c8dbc') Change Password
+			form(method='POST')
+				.form-group
+					.inputbox
+						label
+							b Curent password
+						input.form-control(type='password', name='current-password', placeholder='Enter current password', required)
+					.inputbox
+						label
+							b New password
+						input.form-control(type='password', name='new-password', placeholder='Enter new password', required)
+					.inputbox
+						label
+							b Confirm password
+						input.form-control(type='password', name='confirm-password', placeholder='Enter confirm password', required)
+					input.btn.btn-primary.btn-block(type='submit', value='Submit')
