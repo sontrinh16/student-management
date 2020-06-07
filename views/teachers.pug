@@ -1,27 +1,27 @@
 extends base
 block content
     .dashboard.m-3
-    .content-intro #{title}
-    hr
-    .content-container
-        .d-flex.justify-content-end.align-items-center
-            form.input-box(method='POST')
-                input#txt1-search.form-input.m-1(type='text', name='name', placeholder='Enter name')
-                | 
-                input#img-search.btn.btn-primary.m-1(type='submit', value='Search')
-        div
-            table.table.mt-5.table-bordered
-                thead
-                    tr
-                        th Full Name
-                        th Email
-                        th Department
-                        th Action
-                tbody
-                    each i in teachers
+        .content-intro #{title}
+        hr
+        .content-container
+            .d-flex.justify-content-end.align-items-center
+                form.input-box(method='POST')
+                    input#txt1-search.form-input.m-1(type='text', name='name', placeholder='Enter name')
+                    | 
+                    input#img-search.btn.btn-primary.m-1(type='submit', value='Search')
+            div
+                table.table.mt-5.table-bordered
+                    thead
                         tr
-                            td= i.full_name
-                            td= i.email
-                            td= i.department
-                            td
-                                a(href=`/teachers/${i.teacher_Id}`) detail
+                            th Full Name
+                            th Email
+                            th Department
+                            th Action
+                    tbody
+                        each i in teachers
+                            tr
+                                td= i.full_name
+                                td= i.email
+                                td= i.department
+                                td
+                                    a(href=`/teachers/${i.teacher_Id}`) detail

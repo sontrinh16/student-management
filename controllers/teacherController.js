@@ -13,7 +13,7 @@ exports.getTeachers = catchAsync ( async (req, res, next) => {
 
     const teachers = await queryFunc(query);
 
-    if (teachers.length === 0) return (next(new appError(404, 'No result')))
+    if (teachers.length === 0) return (next(new appError(404, 'Not found')))
 
     res.status(200).render('teachers',{
         teachers,
