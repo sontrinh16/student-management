@@ -5,6 +5,7 @@ const classRouter = require('./class');
 const gradeRouter = require('./grade');
 const path = require('path');
 
+
 const router = express.Router();
 router.use(express.static(path.join(__dirname, '..' , 'public')));
 

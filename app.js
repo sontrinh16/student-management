@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const authController = require('./controllers/authenticationController');
 const teacherRouter = require('./routers/teacher');
+const util = require('util');
+
 
 
 const app = express();
@@ -19,7 +21,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/',(req, res) => {
+app.get('/',async (req, res) => {
     if (req.cookies.jwt)
     {
         res.status(200).redirect('/student/homepage');
@@ -29,7 +31,11 @@ app.get('/',(req, res) => {
     }
 })
 
-app.get('/login', (req, res) => {
+app.get('/login',async (req, res) => {
+    if (req.cookies.jwt)
+    {
+        return res.status(200).redirect('/student/homepage');
+    }
     res.status(200).render('login',{
         title: 'Login'
     })

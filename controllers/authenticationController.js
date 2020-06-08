@@ -5,6 +5,7 @@ const connection =  require('./../connection');
 const checkPassChangeAfter = require('./../utils/checkPass');
 const util = require('util');
 
+
 const queryFunc = util.promisify(connection.query).bind(connection);
 
 const generateToken = (id) => {
@@ -39,7 +40,7 @@ exports.login =catchAsync( async (req, res, next) => {
     
     const cookieOptions = {
         expires: new Date(
-            Date.now() + process.env.JWT_EXPIRED_IN * 24 * 60 * 60 * 1000
+            Date.now() + 24 * 60 *60 *1000
         ),
         httpOnly: true
         //secure: true
@@ -72,7 +73,9 @@ exports.isLogging = catchAsync( async (req, res, next) => {
             process.env.JWT_SECRET
         );
 
-        //console.log(decoded.id);
+        //console.log(checkJwtIsExpired(exp))
+
+        //if (checkJwtIsExpired(exp)) return res.redirect('/login'); 
 
         const query = `SELECT * FROM students WHERE student_Id = ${decoded.id}`;
 
@@ -93,7 +96,7 @@ exports.isLogging = catchAsync( async (req, res, next) => {
         res.locals.user = student;
         return next();
     }
-    next(new appError(401, 'please login first'));
+    res.redirect('/login');
 });
 
 exports.logout = (req, res) => {
@@ -136,3 +139,14 @@ exports.checkNewPass = (req, res, next) => {
     }
     next();
 }
+
+//  exports.checkCookieIsExpired = catchAsync(async (req, res, next) => {
+//      if (!req.cookies.jwt) {
+//         console.alert("Your working session has time out, please login to continue")
+//         setTimeout( () => {
+//             res.clearCookie('jwt');
+//             return res.redirect('/login');
+//         }, 10000)
+//      }
+//      next();
+//  });
