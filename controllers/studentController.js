@@ -135,7 +135,7 @@ exports.renderClasses = catchAsync( async (req, res, next) => {
 
         if (classes.length === 0) return next(new appError(404, 'Not found'));
 
-    res.status(200).render('renderInputBoxClass',{
+    res.status(200).render('class',{
         title: 'Class',
         classes: classes
     })
@@ -151,7 +151,7 @@ exports.renderGrade = catchAsync(async (req, res, next) => {
 
     if (grades.length === 0) return next(new appError(404, 'Not found'));
 
-    res.status(200).render('renderInputBoxGrade', {
+    res.status(200).render('grade', {
         title: 'Grade',
         grades: grades 
     })
