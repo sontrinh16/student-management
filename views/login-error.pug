@@ -18,7 +18,12 @@ html
                             b(class='text-brand') UET
                             p Creative Thinking for the Future
                     
-            
+        .error-message
+            h1
+                i.fas.fa-exclamation-triangle
+                | #{message}
+            h2 Please try again!
+
         .login
             h2(class='text-center' style='color: #3c8dbc') Login
             form(method='POST')
@@ -32,6 +37,3 @@ html
                             b Password :
                         input(class='form-control' type='password' id='password' placeholder='Enter password' name='password' required)
                     input(class='btn btn-primary btn-block' type='submit' value='Submit')
-                
-            
-        

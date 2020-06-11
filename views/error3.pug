@@ -1,0 +1,16 @@
+extends base
+block content
+    div(class='dashboard m-3')
+        .content-intro #{title}
+        hr
+        .content-container
+            div(class='d-flex justify-content-end align-items-center')
+                form(class='input-box' method='POST')
+
+                    input(type='text' id='txt1-search' class='form-input m-1' name='name' placeholder='Enter name')
+                    input(class='btn btn-primary  m-1' id='img-search' type='submit' value='Search')
+            .error-message
+                h1
+                    //i.fas.fa-exclamation-triangle
+                    | #{message}
+                

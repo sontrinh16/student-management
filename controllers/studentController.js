@@ -7,7 +7,7 @@ const toUpper = require('./../utils/upperCase');
 const queryFunc = util.promisify(connection.query).bind(connection);
 
 exports.homepageRender = catchAsync( async (req,res,next) => {
-        res.status(200).render('base', {
+        res.status(200).render('home', {
             title: 'Home Page'
         })
 });
@@ -43,7 +43,7 @@ exports.getClasses = catchAsync( async (req,res,next) => {
         if (year !== '' && semester === '') condition = `classes.school_year = ${year}`;
         else if (semester !== '' && year === '') condition = `classes.semester = ${semester}`;
         else if (semester !== '' && year !== '') condition = `classes.school_year = ${year} AND classes.semester = ${semester}`;
-        else return next(new appError(401, 'please enter valid infor'));
+        else return next(new appError(401, 'please enter valid information'));
 
         const query = `select DISTINCT classes.class_Id, subject.subject_name, classes.class_on, classes.period, classes.room, classes.building, teachers.full_name, teachers.teacher_Id, classes.status 
         from classes JOIN courses ON classes.course_Id = courses.course_Id
@@ -76,7 +76,7 @@ exports.getGrades = catchAsync (async (req, res, next) => {
     if (year !== '' && semester === '') condition = `classes.school_year = ${year}`;
     else if (semester !== '' && year === '') condition = `classes.semester = ${semester}`;
     else if (semester !== '' && year !== '') condition = `classes.school_year = ${year} AND classes.semester = ${semester}`;
-    else return next(new appError(401, 'please enter valid infor'));
+    else return next(new appError(401, 'please enter valid information'));
 
     const query = `SELECT DISTINCT subject.subject_name ,grades.midterm, grades.final, (grades.midterm *0.4 + grades.final * 0.6) as avarage, classes.school_year, classes.semester, classes.status FROM grades JOIN classes ON grades.class_Id = classes.class_Id
     JOIN courses ON courses.course_Id = classes.course_Id JOIN subject ON courses.subject_Id = subject.subject_Id WHERE ${condition} AND classes.student_Id = ${user.student_Id} ORDER BY classes.semester desc`;

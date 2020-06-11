@@ -170,6 +170,7 @@ table thead {
 table tr {
     text-align: center;
 }
+
 legend{
     display: block;
     width: auto !important;
@@ -186,6 +187,7 @@ fieldset{
     border: 1px solid black !important;
     border-radius: 3px;
 }
+
 .footer {
     align-items: end;
     bottom: 0px;
@@ -196,15 +198,4 @@ fieldset{
 .notice,.instruction{
     line-height: 2rem;
     margin-left: 2rem;
-}
-.error-message{
-    color: red;
-    display: flex;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-    height: 100vh;
-    margin-bottom: -400px;
 }

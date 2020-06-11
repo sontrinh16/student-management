@@ -15,15 +15,15 @@ const generateToken = (id) => {
 }
 
 exports.login =catchAsync( async (req, res, next) => {
-    const {username, psw} = req.body;
+    const {username, password} = req.body;
     // const user_db =  (role === 'student')? 'students' : 'teachers';
     // const user_name = (role === 'student')? 'MSV' : 'user_name';
     // const user_id = (role === 'student')? 'student_Id' : 'teacher_Id';
     //if (username === undefined || psw === undefined) return next(new appError(400, 'please provide username and password'));
 
-    console.log(username + ',' + psw);
+    console.log(username + ',' + password);
 
-    const query = `SELECT * FROM students WHERE MSV = '${username}' AND pass = '${psw}'`;
+    const query = `SELECT * FROM students WHERE MSV = '${username}' AND pass = '${password}'`;
 
     const users = await queryFunc(query);
 
@@ -83,11 +83,11 @@ exports.isLogging = catchAsync( async (req, res, next) => {
 
         const student = students[0];
 
-        if (student.length === 0) return next(new appError(401, 'username of password is not exist'));
+        if (student.length === 0) return next(new appError(401, 'username is not exist'));
 
         //console.log(student);
         
-        if (checkPassChangeAfter(student.pass_change_at, decoded.iat)) return next(new appError(401, 'username of password is not exist'));
+        //if (checkPassChangeAfter(student.pass_change_at, decoded.iat)) return next(new appError(401, 'username of password is not exist'));
 
         student.pass = undefined;    
 
@@ -122,9 +122,10 @@ exports.changePass = catchAsync( async (req, res, next) => {
     const newPass = req.body.new_password;
     const user = req.user;
 
+    console.log(newPass)
+
     const query = `update students
                 set students.pass = '${newPass}'
-                set students.pass_change_at = NOW()
                 where students.student_Id = ${user.student_Id}`
             
             await queryFunc(query);
