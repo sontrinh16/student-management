@@ -1,68 +1,68 @@
 extends base
 block content
     .dashboard.m-3
-    .content-intro DETAIL TEACHER
-    hr
-    .content-container
-        form.mt-5(method='post')
-            .form-group
-                .container
-                    .row
-                        .col-md-6
-                            .container-fluid
-                                fieldset
-                                    legend  Personal Info
-                                    .row
-                                        .col-md-3
-                                            label ID :
-                                        .col-md-9
-                                            p= teacher.teacher_Id
-                                    .row
-                                        .col-md-3
-                                            label FullName :
-                                        .col-md-9
-                                            p= teacher.full_name
-                                    .row
-                                        .col-md-3
-                                            label Date of birth :
-                                        .col-md-9
-                                            p= teacher.birthDay
-                                    .row
-                                        .col-md-3
-                                            label Gender
-                                        .col-md-9
-                                            p= teacher.gender
-                                    .row
-                                        .col-md-3
-                                            label Department
-                                        .col-md-9
-                                            p= teacher.department
-                                    .row
-                                        .col-md-3
-                                            label Role
-                                        .col-md-9
-                                            p= teacher.role
-                                    .row
-                                        .col-md-3
-                                            label Other details
-                                        .col-md-9
-                                            p= teacher.other_details
-                        .col-md-6
-                            .container-fluid
-                                fieldset
-                                    legend Contact Info
-                                    .row
-                                        .col-md-3
-                                            label Address
-                                        .col-md-9
-                                            p= teacher.address
-                                    .row
-                                        .col-md-3
-                                            label Email
-                                        .col-md-9
-                                            p= teacher.email
-                                    .row
-                                        .col-md-3
-                                            label Phone
-                                        .col-md-9
-                                            p= teacher.phone
+        .content-intro DETAIL TEACHER
+        hr
+        .content-container
+            form.mt-5(method='post')
+                .form-group
+                    .container
+                        .row
+                            .col-md-6
+                                .container-fluid
+                                    fieldset
+                                        legend  Personal Info
+                                        .row
+                                            .col-md-3
+                                                label ID :
+                                            .col-md-9
+                                                p= teacher.teacher_Id
+                                        .row
+                                            .col-md-3
+                                                label FullName :
+                                            .col-md-9
+                                                p= teacher.full_name
+                                        .row
+                                            .col-md-3
+                                                label Date of birth :
+                                            .col-md-9
+                                                p= teacher.birthDay
+                                        .row
+                                            .col-md-3
+                                                label Gender
+                                            .col-md-9
+                                                p= teacher.gender
+                                        .row
+                                            .col-md-3
+                                                label Department
+                                            .col-md-9
+                                                p= teacher.department
+                                        .row
+                                            .col-md-3
+                                                label Role
+                                            .col-md-9
+                                                p= teacher.role
+                                        .row
+                                            .col-md-3
+                                                label Other details
+                                            .col-md-9
+                                                p= teacher.other_details
+                            .col-md-6
+                                .container-fluid
+                                    fieldset
+                                        legend Contact Info
+                                        .row
+                                            .col-md-3
+                                                label Address
+                                            .col-md-9
+                                                p= teacher.address
+                                        .row
+                                            .col-md-3
+                                                label Email
+                                            .col-md-9
+                                                p= teacher.email
+                                        .row
+                                            .col-md-3
+                                                label Phone
+                                            .col-md-9
+                                                p= teacher.phone
